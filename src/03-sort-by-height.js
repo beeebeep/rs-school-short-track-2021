@@ -9,8 +9,11 @@
  *
  * The result should be [-1, 150, 160, 170, -1, -1, 180, 190]
  */
-function sortByHeight(/* arr */) {
-  throw new Error('Not implemented');
+function sortByHeight(arr) {
+  let c = 0;
+  // eslint-disable-next-line no-bitwise
+  const arrNew = arr.filter((v) => v !== -1).sort((a, b) => a - b);
+  return [...new Array(arr.length)].map((v, i) => ((arr[i] === -1) ? -1 : arrNew[c++]));
 }
 
 module.exports = sortByHeight;
